@@ -1,0 +1,142 @@
+.drawer-shell {
+  position: relative;
+}
+
+.drawer-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111111;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.site-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.drawer-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 14px;
+  background: rgba(17, 17, 17, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 6px;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.drawer-toggle:hover {
+  background: rgba(17, 17, 17, 0.12);
+  transform: translateY(-1px);
+}
+
+.drawer-toggle span {
+  width: 22px;
+  height: 2px;
+  background: #111111;
+  border-radius: 99px;
+  display: block;
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 10;
+}
+
+.drawer-open .drawer-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(320px, 85vw);
+  height: 100vh;
+  padding: 24px;
+  background: #ffffff; /* keep panel light to contrast off-white body */
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  transition: right 220ms ease;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.drawer-open .drawer-panel {
+  right: 0;
+}
+
+.drawer-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.drawer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffb46f;
+}
+
+.drawer-close {
+  border: none;
+  background: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #111111;
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.drawer-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 16px;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.04);
+  color: #111111;
+  border-radius: 18px;
+  text-decoration: none;
+  transition: background 180ms ease;
+}
+
+.drawer-link:hover {
+  background: rgba(17, 17, 17, 0.08);
+}
+
+.drawer-primary {
+  background: #ffb46f;
+  color: #16110d;
+}
+
+.drawer-primary:hover {
+  filter: brightness(0.95);
+}

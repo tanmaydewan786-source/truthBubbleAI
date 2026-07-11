@@ -1,0 +1,24 @@
+.btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.btn-primary {
+  background: #ff8a00;
+  color: #110b08;
+  border-color: #ff8a00;
+}
+
+.btn-secondary {
+  background: rgba(17, 17, 17, 0.06);
+  color: #111111;
+  border-color: rgba(17, 17, 17, 0.12);
+}
+
+.btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}

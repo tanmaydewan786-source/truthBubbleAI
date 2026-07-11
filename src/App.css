@@ -1,0 +1,56 @@
+.app-shell {
+  min-height: 100vh;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  color: inherit;
+  background: transparent; /* allow body off-white to show */
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 12px 0;
+}
+
+.desktop-nav {
+  display: block;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+a {
+  color: #ffb46f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 20px 16px;
+  }
+}
