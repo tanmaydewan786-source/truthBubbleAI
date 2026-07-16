@@ -160,8 +160,8 @@ function LandingPage() {
           <h2>See clearly. Then share.</h2>
           <p className="lead">Join the waitlist and get early access to Truth Bubble as we open the beta.</p>
           <div className="final-cta">
-            <a className="btn btn-primary" href="#" onClick={(e) => e.preventDefault()}>Join the beta waitlist</a>
-            <a className="btn btn-ghost" href="#" onClick={(e) => e.preventDefault()}>Support the mission</a>
+            <a className="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd99LLME_VlFnhm8BIX2EDHyTcWCL_ZPrrr_n_X-C2ItaLhbQ/viewform?usp=publish-editor" >Join the beta waitlist</a>
+            <a className="btn btn-ghost" href="https://www.kickstarter.com/projects/1575765461/truth-bubble-ai" >Support the mission</a>
           </div>
           <p className="swap-note">Secondary button is a placeholder slot — point it at Kickstarter or a backer page when ready.</p>
         </div>
