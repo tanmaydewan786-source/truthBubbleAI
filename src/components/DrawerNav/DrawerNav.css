@@ -16,11 +16,17 @@
   color: #111111;
   text-decoration: none;
   font-weight: 700;
+  gap: 0;
+  padding: 0;
+  line-height: 0;
 }
 
-.site-logo {
-  width: 36px;
-  height: 36px;
+.drawer-header-bar .site-logo {
+  display: block;
+  width: 145px;
+  height: auto;
+  margin: 0;
+  padding: 0;
   object-fit: contain;
 }
 

@@ -16,10 +16,18 @@
   font-size: 1rem;
 }
 
-.brand img,
-.site-logo {
-  width: 38px;
-  height: 38px;
+.navbar > .brand {
+  gap: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.navbar > .brand .site-logo {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: 0;
+  padding: 0;
   object-fit: contain;
 }
 

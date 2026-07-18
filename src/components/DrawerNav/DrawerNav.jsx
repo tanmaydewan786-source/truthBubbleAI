@@ -17,7 +17,6 @@ function DrawerNav() {
       <div className="navbar drawer-header-bar">
         <Link className="navbar-brand" to="/#top">
           <img src={tbLogo} alt="Truth Bubble logo" className="site-logo" />
-          <span>Truth Bubble</span>
         </Link>
         <button className="drawer-toggle" onClick={() => setOpen(true)} aria-label="Open navigation drawer">
           <span />

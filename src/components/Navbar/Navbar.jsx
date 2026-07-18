@@ -7,7 +7,6 @@ function Navbar() {
     <nav className="navbar">
       <Link className="brand" to="/#top">
         <img src={tbLogo} alt="Truth Bubble logo" className="site-logo" />
-        <span>Truth Bubble</span>
       </Link>
       <div className="nav-links">
         <Link className="link" to="/#how">How it works</Link>

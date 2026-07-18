@@ -4,6 +4,7 @@ import Trust from '../../components/Trust/Trust.jsx'
 import Matters from '../../components/Matters/Matters.jsx'
 import demoVid from '../../assets/truth-bubble-demo.mp4'
 import demoPoster from '../../assets/truth-bubble-preview.jpg'
+import heroImage from '../../assets/truth-bubble-instagram-verification.jpeg'
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -23,26 +24,34 @@ function LandingPage() {
         </div>
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <span className="status-pill">
-              <span className="live" aria-hidden="true"></span>
-              Beta in development · Android first
-            </span>
-            <h1>
-              Verify what you see online in <span className="accent">one tap.</span>
-            </h1>
-            <p className="hero-sub">
-              Truth Bubble is a calm verification layer for your phone. Check the claims, sources and context behind any post — without leaving the app you're reading.
-            </p>
-            <div className="hero-cta">
-              <Link className="btn btn-primary" to="/beta">Join the beta waitlist</Link>
-              <Link className="btn btn-ghost" to="/#how" onClick={scrollToHowItWorks}>
-                See how it works
-              </Link>
+            <div className="hero-visual-column">
+              <span className="status-pill hero-image-status">
+                <span className="live" aria-hidden="true"></span>
+                Beta in development · Android first
+              </span>
+              <div className="hero-product-image">
+                <img
+                  src={heroImage}
+                  alt="Truth Bubble verifying a claim inside an Instagram post"
+                />
+              </div>
             </div>
-            <p className="hero-meta">Full public rollout targeted for January 2027.</p>
-          </div>
 
-          {/* media removed from hero - moved under the Solution section */}
+            <div className="hero-copy-content">
+              <h1>
+                Empowering India’s<br />
+                <span className="accent">next billion users</span><br />
+                via One-Tap
+              </h1>
+              <div className="hero-cta hero-image-actions">
+                <Link className="btn btn-primary" to="/beta">Join the beta waitlist</Link>
+                <Link className="btn btn-ghost" to="/#how" onClick={scrollToHowItWorks}>
+                  See how it works
+                </Link>
+              </div>
+              <p className="hero-meta">Full public rollout targeted for January 2027.</p>
+            </div>
+          </div>
         </div>
       </section>
 
