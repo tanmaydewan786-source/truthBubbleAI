@@ -217,8 +217,7 @@
   background: rgba(17, 17, 17, 0.02);
 }
 
-.hero-meta,
-.swap-note {
+.hero-meta {
   color: rgba(17, 17, 17, 0.64);
   font-size: 0.95rem;
 }

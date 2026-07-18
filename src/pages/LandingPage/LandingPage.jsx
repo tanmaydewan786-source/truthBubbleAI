@@ -8,6 +8,12 @@ import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function LandingPage() {
+  const scrollToHowItWorks = () => {
+    requestAnimationFrame(() => {
+      document.getElementById('how')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
+
   return (
     <div className="landing-page">
       <section className="hero">
@@ -29,7 +35,9 @@ function LandingPage() {
             </p>
             <div className="hero-cta">
               <Link className="btn btn-primary" to="/beta">Join the beta waitlist</Link>
-              <Link className="btn btn-ghost" to="/#how">See how it works</Link>
+              <Link className="btn btn-ghost" to="/#how" onClick={scrollToHowItWorks}>
+                See how it works
+              </Link>
             </div>
             <p className="hero-meta">Full public rollout targeted for January 2027.</p>
           </div>
@@ -164,7 +172,6 @@ function LandingPage() {
             <Link to="/beta" className="btn btn-primary" >Join the beta waitlist</Link>
             <a className="btn btn-ghost" href="https://www.kickstarter.com/projects/1575765461/truth-bubble-ai" >Support the mission</a>
           </div>
-          <p className="swap-note">Secondary button is a placeholder slot — point it at Kickstarter or a backer page when ready.</p>
         </div>
       </section>
     </div>
