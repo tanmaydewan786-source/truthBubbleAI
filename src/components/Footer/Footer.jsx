@@ -1,18 +1,19 @@
 import './Footer.css'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
     <footer className="site-footer">
       <div className="wrap foot-grid">
-        <a className="brand" href="#top">
+        <Link className="brand" to="/#top">
           <span className="dot" aria-hidden="true"></span> Truth Bubble
-        </a>
+        </Link>
         <nav className="foot-links" aria-label="Footer">
-          <a href="#how">How it works</a>
-          <a href="#trust">Status</a>
-          <a href="#matters">Why it matters</a>
-          <a href="#join">Join the beta</a>
-          <a href="#">Privacy</a>
+          <Link to="/#how">How it works</Link>
+          <Link to="/#trust">Status</Link>
+          <Link to="/#matters">Why it matters</Link>
+          <Link to="/beta">Join the beta</Link>
+          <Link to="/#top">Privacy</Link>
         </nav>
         <p className="foot-copy">© 2025 Truth Bubble · Built for everyone, everywhere.</p>
       </div>

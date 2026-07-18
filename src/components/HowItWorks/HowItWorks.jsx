@@ -1,4 +1,3 @@
-import React from 'react'
 import step1Img from '../../assets/Truth Bubble Step 1 - Clean professional business design. Simple horizontal layout with generous white space. Left side_ Realistic iPhone mockup showing Instagram feed with _GLOBAL TRE.jpg'
 import step2Img from '../../assets/Truth Bubble Step 2 - Clean professional business design. Simple horizontal layout with generous white space. Left side_ Realistic iPhone mockup showing Instagram feed with _GLOBAL TRE.jpg'
 import step3Img from '../../assets/Truth Bubble Step 3 - Clean professional business design. Simple horizontal layout with generous white space. Left side_ Realistic iPhone mockup showing full chat interface. Header _TR.jpg'

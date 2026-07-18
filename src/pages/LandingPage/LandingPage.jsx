@@ -5,6 +5,7 @@ import Matters from '../../components/Matters/Matters.jsx'
 import demoVid from '../../assets/truth-bubble-demo.mp4'
 import demoPoster from '../../assets/truth-bubble-preview.jpg'
 import { useRef, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function LandingPage() {
   return (
@@ -27,8 +28,8 @@ function LandingPage() {
               Truth Bubble is a calm verification layer for your phone. Check the claims, sources and context behind any post — without leaving the app you're reading.
             </p>
             <div className="hero-cta">
-              <a className="btn btn-primary" href="#join">Join the beta waitlist</a>
-              <a className="btn btn-ghost" href="#how">See how it works</a>
+              <Link className="btn btn-primary" to="/beta">Join the beta waitlist</Link>
+              <Link className="btn btn-ghost" to="/#how">See how it works</Link>
             </div>
             <p className="hero-meta">Full public rollout targeted for January 2027.</p>
           </div>
@@ -160,7 +161,7 @@ function LandingPage() {
           <h2>See clearly. Then share.</h2>
           <p className="lead">Join the waitlist and get early access to Truth Bubble as we open the beta.</p>
           <div className="final-cta">
-            <a className="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSd99LLME_VlFnhm8BIX2EDHyTcWCL_ZPrrr_n_X-C2ItaLhbQ/viewform?usp=publish-editor" >Join the beta waitlist</a>
+            <Link to="/beta" className="btn btn-primary" >Join the beta waitlist</Link>
             <a className="btn btn-ghost" href="https://www.kickstarter.com/projects/1575765461/truth-bubble-ai" >Support the mission</a>
           </div>
           <p className="swap-note">Secondary button is a placeholder slot — point it at Kickstarter or a backer page when ready.</p>

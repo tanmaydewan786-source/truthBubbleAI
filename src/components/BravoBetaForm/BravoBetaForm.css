@@ -1,0 +1,432 @@
+@font-face {
+  font-display: block;
+  font-family: "Roboto";
+  src:
+    url("https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2")
+      format("woff2"),
+    url("https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff")
+      format("woff");
+}
+
+@font-face {
+  font-display: fallback;
+  font-family: "Roboto";
+  font-weight: 600;
+  src:
+    url("https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2")
+      format("woff2"),
+    url("https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff")
+      format("woff");
+}
+
+@font-face {
+  font-display: fallback;
+  font-family: "Roboto";
+  font-weight: 700;
+  src:
+    url("https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2")
+      format("woff2"),
+    url("https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff")
+      format("woff");
+}
+
+:where(.sib-form-message-panel) {
+  display: none;
+}
+
+:where(.sib-form-message-panel .sib-notification__icon) {
+  width: 20px;
+  height: 20px;
+}
+
+.beta-form-section {
+  width: 100%;
+  padding: 32px 16px;
+  text-align: center;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.beta-form-container {
+  direction: ltr;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(24, 6, 6);
+  border: 1px solid #c0ccd9;
+  border-radius: 12px;
+  box-shadow: 0 22px 60px rgba(24, 6, 6, 0.16);
+  overflow: hidden;
+}
+
+.beta-form-container form {
+  padding: 24px;
+}
+
+.beta-form-logo-wrapper {
+  padding: 8px 0;
+  text-align: center;
+}
+
+.beta-form-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.beta-form-heading {
+  padding: 8px 0;
+  font-family: "Trebuchet MS", sans-serif;
+  text-align: left;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.beta-form-heading h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.beta-form-description {
+  padding: 8px 0;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  color: #ffffff;
+}
+
+.beta-form-description p {
+  margin: 0;
+}
+
+.beta-form-container .sib-form-block {
+  margin: 0;
+  padding: 8px 0;
+}
+
+.beta-form-container .form__label-row,
+.beta-form-container .entry__field {
+  width: 100%;
+}
+
+.beta-form-container .entry__field {
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #d8dee8;
+  border-radius: 10px;
+}
+
+.beta-form-container .input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  font: 16px/1.2 "Trebuchet MS", sans-serif;
+  color: #201515;
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+}
+
+.beta-form-container .entry__field:focus-within {
+  border-color: #ed7014;
+  box-shadow: 0 0 0 3px rgba(237, 112, 20, 0.18);
+}
+
+.beta-form-container .entry_error {
+  display: block;
+  min-height: 8px;
+  margin: 2px 0 0;
+  font: 12px/1.3 Helvetica, sans-serif;
+  text-align: left;
+  color: #ffb7b7;
+}
+
+.beta-form-field-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  color: #ffffff;
+}
+
+.beta-role-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.beta-role-list .checkbox__label,
+.beta-consent-label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.beta-form-container .input_replaced {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.beta-form-container .checkbox {
+  position: relative;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  margin-top: 1px;
+  background: #ffffff;
+  border: 2px solid #c8ced8;
+  border-radius: 5px;
+}
+
+.beta-form-container .input_replaced:focus-visible + .checkbox {
+  outline: 3px solid rgba(237, 112, 20, 0.35);
+  outline-offset: 2px;
+}
+
+.beta-form-container .input_replaced:checked + .checkbox {
+  background: #ed7014;
+  border-color: #ed7014;
+}
+
+.beta-form-container .input_replaced:checked + .checkbox::after {
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 5px;
+  height: 10px;
+  content: "";
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.beta-checkbox-text {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.beta-consent-label {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.beta-consent-text {
+  flex: 1;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f8f8fa;
+}
+
+.beta-phone-row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.beta-phone-row .beta-country-field,
+.beta-phone-row .beta-phone-field {
+  width: auto;
+}
+
+.beta-country-select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.beta-declaration {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.beta-security-icon {
+  display: grid;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #0092ff;
+  border-radius: 50%;
+}
+
+.beta-declaration-text {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  color: #e9eef6;
+}
+
+.beta-declaration-text p {
+  margin: 0;
+}
+
+.beta-form-container a {
+  color: #2bb2fc;
+  text-decoration: underline;
+}
+
+.beta-submit-wrapper {
+  padding: 24px 0 8px;
+  text-align: center;
+}
+
+.beta-submit-button {
+  display: inline-flex;
+  min-width: 220px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: #110b08;
+  cursor: pointer;
+  appearance: none;
+  background: #ff8a00;
+  border: 1px solid #ff8a00;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(255, 138, 0, 0.25);
+  transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.beta-submit-button:hover {
+  background: #ff9d2e;
+  box-shadow: 0 10px 26px rgba(255, 138, 0, 0.34);
+  transform: translateY(-1px);
+}
+
+.beta-submit-button:active {
+  box-shadow: 0 4px 12px rgba(255, 138, 0, 0.22);
+  transform: translateY(0);
+}
+
+.beta-submit-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+}
+
+.beta-submit-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 3px;
+}
+
+.beta-submit-feedback {
+  max-width: 420px;
+  margin: 14px auto 0;
+  padding: 11px 14px;
+  font: 600 14px/1.45 "Trebuchet MS", sans-serif;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 9px;
+}
+
+.beta-submit-feedback--submitting {
+  color: #fff3e8;
+  background: rgba(255, 138, 0, 0.14);
+  border-color: rgba(255, 138, 0, 0.38);
+}
+
+.beta-submit-feedback--success {
+  color: #dffff0;
+  background: rgba(43, 182, 115, 0.18);
+  border-color: rgba(43, 182, 115, 0.55);
+}
+
+.beta-submit-feedback--error {
+  color: #ffe5e5;
+  background: rgba(255, 73, 73, 0.16);
+  border-color: rgba(255, 73, 73, 0.5);
+}
+
+.beta-form-container .input--hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+.brevo-message-error,
+.brevo-message-success {
+  max-width: 540px;
+  margin: 0 auto 16px;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: left;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+.brevo-message-error {
+  color: #661d1d;
+  background-color: #ffeded;
+  border-color: #ff4949;
+}
+
+.brevo-message-success {
+  color: #085229;
+  background-color: #e7faf0;
+  border-color: #13ce66;
+}
+
+#sib-container input::placeholder,
+#sib-container textarea::placeholder {
+  font-family: Helvetica, sans-serif;
+  text-align: left;
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+  .beta-form-section {
+    padding: 16px 8px;
+  }
+
+  .beta-form-container form {
+    padding: 16px;
+  }
+
+  .beta-form-logo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .beta-form-heading h2 {
+    font-size: 21px;
+  }
+
+  .beta-declaration {
+    flex-direction: column;
+  }
+
+  .beta-phone-row {
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 8px;
+  }
+}
