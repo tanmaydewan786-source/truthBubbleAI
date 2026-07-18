@@ -57,7 +57,7 @@ export default function CookieConsent() {
 
         <div className="cookie-actions">
           <button className="cookie-button cookie-button--secondary" type="button" onClick={() => saveConsent('denied')}>
-            Deny All
+            Decline
           </button>
           <button className="cookie-button cookie-button--primary" type="button" onClick={() => saveConsent('accepted')}>
             Accept All
