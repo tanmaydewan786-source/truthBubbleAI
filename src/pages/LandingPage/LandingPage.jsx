@@ -49,7 +49,6 @@ function LandingPage() {
       <section className="problem reveal">
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">The gap</span>
             <h2>
               Sharing takes one tap. <span className="q">Checking takes ten.</span>
             </h2>

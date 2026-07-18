@@ -1,0 +1,325 @@
+:root {
+  color-scheme: dark;
+  --dark-bg: #050505;
+  --dark-surface: #0d0d0d;
+  --dark-surface-raised: #151515;
+  --dark-border: rgba(255, 255, 255, 0.1);
+  --dark-text: #f7f7f3;
+  --dark-muted: rgba(247, 247, 243, 0.72);
+  --dark-accent: #ff9b3d;
+}
+
+html,
+body,
+#root {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body {
+  background: var(--dark-bg);
+}
+
+.app-shell {
+  color: var(--dark-text);
+  background: var(--dark-bg);
+}
+
+.app-header {
+  background: rgba(5, 5, 5, 0.82);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.navbar .brand,
+.navbar-brand,
+.navbar .link,
+.drawer-title,
+.drawer-close,
+.drawer-link {
+  color: var(--dark-text);
+}
+
+.navbar .link {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.navbar .link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.drawer-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--dark-border);
+}
+
+.drawer-toggle span {
+  background: var(--dark-text);
+}
+
+.drawer-overlay {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.drawer-panel {
+  background: #0a0a0a;
+  border-left-color: var(--dark-border);
+}
+
+.drawer-link {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.drawer-link:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.landing-page {
+  color: var(--dark-text);
+}
+
+.landing-page::before {
+  background: linear-gradient(180deg, #050505 0%, #090909 100%);
+}
+
+.landing-page::after {
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(255, 139, 44, 0.12) 0 14%, transparent 40%),
+    radial-gradient(circle at 62% 36%, rgba(255, 255, 255, 0.04) 0 8%, transparent 28%),
+    radial-gradient(circle at 72% 62%, rgba(255, 139, 44, 0.07) 0 6%, transparent 22%);
+}
+
+.landing-page h1,
+.landing-page h2,
+.landing-page h3,
+.landing-page h4,
+.landing-page .headline,
+.landing-page .verdict,
+.landing-page .status-pill,
+.landing-page .section-head,
+.landing-page .q {
+  color: var(--dark-text);
+}
+
+.landing-page .hero-copy h1 {
+  color: #000000;
+}
+
+.landing-page .hero-copy h1 .accent {
+  color: #ffb46f;
+}
+
+.landing-page .hero-copy .hero-sub {
+  color: #000000;
+}
+
+.landing-page .hero-sub,
+.landing-page .lead,
+.landing-page .hero-meta,
+.landing-page .prob-item p,
+.landing-page .step p,
+.landing-page .p p {
+  color: var(--dark-muted);
+}
+
+.landing-page .status-pill,
+.landing-page .btn-ghost,
+.landing-page .section-head,
+.landing-page .problem,
+.landing-page .solution,
+.landing-page .how,
+.landing-page .trust,
+.landing-page .final,
+.landing-page .prob-item,
+.landing-page .step,
+.landing-page .p {
+  background-color: var(--dark-surface);
+  border-color: var(--dark-border);
+}
+
+.landing-page .problem,
+.landing-page .solution,
+.landing-page .how,
+.landing-page .trust,
+.landing-page .final {
+  width: 100%;
+  margin-top: 32px;
+  padding-top: 88px;
+  padding-bottom: 88px;
+  overflow: hidden;
+  border: 1px solid var(--dark-border);
+  border-radius: 28px;
+}
+
+.landing-page .problem > .wrap,
+.landing-page .solution > .wrap,
+.landing-page .how > .wrap,
+.landing-page .trust > .wrap,
+.landing-page .final > .wrap {
+  width: min(1120px, calc(100% - 32px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .landing-page .problem,
+  .landing-page .solution,
+  .landing-page .how,
+  .landing-page .trust,
+  .landing-page .final {
+    margin-top: 20px;
+    padding-top: 58px;
+    padding-bottom: 58px;
+    border-radius: 22px;
+  }
+
+  .landing-page .problem > .wrap,
+  .landing-page .solution > .wrap,
+  .landing-page .how > .wrap,
+  .landing-page .trust > .wrap,
+  .landing-page .final > .wrap {
+    width: min(100%, calc(100% - 24px));
+  }
+}
+
+.landing-page .btn-ghost {
+  color: var(--dark-text);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.landing-page .video-mock,
+.landing-page .solution-video {
+  background: var(--dark-surface-raised);
+  border-color: var(--dark-border);
+}
+
+.site-footer {
+  width: 100%;
+  margin-top: 32px;
+  padding: 64px 0;
+  color: var(--dark-text);
+  background: var(--dark-bg);
+  overflow: hidden;
+  border: 1px solid var(--dark-border);
+  border-radius: 28px;
+}
+
+.site-footer > .wrap {
+  width: min(1120px, calc(100% - 32px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.site-footer .brand,
+.site-footer .foot-links a,
+.site-footer .footer-privacy-button {
+  color: var(--dark-text);
+}
+
+.site-footer .foot-copy {
+  color: var(--dark-muted);
+}
+
+.beta-form-section {
+  background: var(--dark-bg);
+}
+
+.beta-form-container {
+  background: var(--dark-surface);
+  border-color: var(--dark-border);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
+}
+
+.beta-form-container .entry__field,
+.beta-form-container .input {
+  color: var(--dark-text);
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.beta-form-container .input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.beta-form-container .checkbox {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.cookie-backdrop {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.cookie-dialog {
+  color: var(--dark-text);
+  background: var(--dark-surface-raised);
+  border-color: var(--dark-border);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.58);
+}
+
+.cookie-copy p {
+  color: var(--dark-muted);
+}
+
+.cookie-eyebrow,
+.cookie-policy-link {
+  color: var(--dark-accent);
+}
+
+.cookie-button--secondary {
+  color: var(--dark-text);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.privacy-modal-backdrop {
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.privacy-modal {
+  color: var(--dark-text);
+  background: var(--dark-surface);
+}
+
+.privacy-hero {
+  background: #090909;
+  border: 1px solid var(--dark-border);
+}
+
+.privacy-content section {
+  border-bottom-color: var(--dark-border);
+}
+
+.privacy-content h2,
+.privacy-content strong {
+  color: var(--dark-text);
+}
+
+.privacy-content p,
+.privacy-content ul,
+.privacy-contact {
+  color: var(--dark-muted);
+}
+
+.privacy-contact {
+  background: rgba(255, 138, 0, 0.07);
+}
+
+.privacy-contact a {
+  color: var(--dark-accent);
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    background: var(--dark-bg);
+  }
+
+  .site-footer {
+    margin-top: 20px;
+    padding: 48px 0;
+    border-radius: 22px;
+  }
+
+  .site-footer > .wrap {
+    width: min(100%, calc(100% - 24px));
+  }
+}
