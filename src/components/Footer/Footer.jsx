@@ -13,7 +13,7 @@ function Footer() {
           <Link to="/#trust">Status</Link>
           <Link to="/#matters">Why it matters</Link>
           <Link to="/beta">Join the beta</Link>
-          <Link to="/#top">Privacy</Link>
+          <Link to="/privacy">Privacy &amp; cookies</Link>
         </nav>
         <p className="foot-copy">© 2025 Truth Bubble · Built for everyone, everywhere.</p>
       </div>
