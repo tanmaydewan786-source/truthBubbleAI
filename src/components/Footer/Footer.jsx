@@ -13,9 +13,15 @@ function Footer() {
           <Link to="/#trust">Status</Link>
           <Link to="/#matters">Why it matters</Link>
           <Link to="/beta">Join the beta</Link>
-          <Link to="/privacy">Privacy &amp; cookies</Link>
+          <button
+            className="footer-privacy-button"
+            type="button"
+            onClick={() => window.dispatchEvent(new Event('truthbubble:open-privacy-policy'))}
+          >
+            Privacy &amp; cookies
+          </button>
         </nav>
-        <p className="foot-copy">© 2025 Truth Bubble · Built for everyone, everywhere.</p>
+        <p className="foot-copy">© 2026 Tabutech Labs</p>
       </div>
     </footer>
   )

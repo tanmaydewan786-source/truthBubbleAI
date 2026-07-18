@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import './CookieConsent.css'
+import PrivacyPage from '../../pages/PrivacyPage/PrivacyPage.jsx'
 
 const CONSENT_KEY = 'truthBubbleCookieConsent'
 
@@ -14,11 +14,20 @@ function readConsent() {
 
 export default function CookieConsent() {
   const [open, setOpen] = useState(() => readConsent() === null)
+  const [privacyOpen, setPrivacyOpen] = useState(false)
 
   useEffect(() => {
     const openSettings = () => setOpen(true)
+    const openPrivacy = () => {
+      setOpen(false)
+      setPrivacyOpen(true)
+    }
     window.addEventListener('truthbubble:open-cookie-settings', openSettings)
-    return () => window.removeEventListener('truthbubble:open-cookie-settings', openSettings)
+    window.addEventListener('truthbubble:open-privacy-policy', openPrivacy)
+    return () => {
+      window.removeEventListener('truthbubble:open-cookie-settings', openSettings)
+      window.removeEventListener('truthbubble:open-privacy-policy', openPrivacy)
+    }
   }, [])
 
   const saveConsent = (choice) => {
@@ -30,6 +39,20 @@ export default function CookieConsent() {
 
     window.dispatchEvent(new CustomEvent('truthbubble:cookie-consent', { detail: choice }))
     setOpen(false)
+  }
+
+  const openPrivacyPolicy = () => {
+    setOpen(false)
+    setPrivacyOpen(true)
+  }
+
+  const closePrivacyPolicy = () => {
+    setPrivacyOpen(false)
+    setOpen(true)
+  }
+
+  if (privacyOpen) {
+    return <PrivacyPage onClose={closePrivacyPolicy} />
   }
 
   if (!open) return null
@@ -50,9 +73,9 @@ export default function CookieConsent() {
             We use essential browser storage to remember your choice. Optional cookies may be used
             for analytics and product improvement only if you accept them.
           </p>
-          <Link className="cookie-policy-link" to="/privacy" onClick={() => setOpen(false)}>
+          <button className="cookie-policy-link" type="button" onClick={openPrivacyPolicy}>
             Read our privacy policy
-          </Link>
+          </button>
         </div>
 
         <div className="cookie-actions">

@@ -7,7 +7,6 @@ import Footer from './components/Footer/Footer.jsx'
 import LandingPage from './pages/LandingPage/LandingPage.jsx'
 import BrevoBetaForm from './components/BravoBetaForm/BravoBetaForm.jsx'
 import CookieConsent from './components/CookieConsent/CookieConsent.jsx'
-import PrivacyPage from './pages/PrivacyPage/PrivacyPage.jsx'
 
 function ScrollToLocation() {
   const { pathname, hash } = useLocation()
@@ -42,7 +41,6 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/beta" element={<BrevoBetaForm />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

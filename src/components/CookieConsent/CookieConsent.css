@@ -44,9 +44,13 @@
 }
 
 .cookie-policy-link {
+  padding: 0;
   font-size: 0.9rem;
   font-weight: 700;
   color: #9b4300;
+  cursor: pointer;
+  background: none;
+  border: 0;
   text-decoration: underline;
   text-underline-offset: 3px;
 }

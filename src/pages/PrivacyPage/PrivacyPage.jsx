@@ -1,15 +1,20 @@
 import './PrivacyPage.css'
 
-export default function PrivacyPage() {
-  const openCookieSettings = () => {
-    window.dispatchEvent(new Event('truthbubble:open-cookie-settings'))
-  }
-
+export default function PrivacyPage({ onClose }) {
   return (
-    <article className="privacy-page">
+    <div className="privacy-modal-backdrop" role="presentation">
+      <article
+        className="privacy-page privacy-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacy-policy-title"
+      >
       <header className="privacy-hero">
+        <button className="privacy-close-button" type="button" onClick={onClose} aria-label="Close privacy policy">
+          ×
+        </button>
         <span className="privacy-eyebrow">Privacy</span>
-        <h1>Privacy Policy for Truth Bubble AI</h1>
+        <h1 id="privacy-policy-title">Privacy and cookie policy</h1>
         <p>
           Last Updated: July 18, 2026
         </p>
@@ -104,9 +109,6 @@ export default function PrivacyPage() {
             You can accept or deny optional cookies and reopen the consent menu at any time using
             the button below. Essential browser storage remembers your consent choice.
           </p>
-          <button className="privacy-settings-button" type="button" onClick={openCookieSettings}>
-            Change cookie settings
-          </button>
         </section>
 
         <section>
@@ -123,6 +125,12 @@ export default function PrivacyPage() {
           </address>
         </section>
       </div>
-    </article>
+      <div className="privacy-modal-footer">
+        <button className="privacy-settings-button" type="button" onClick={onClose}>
+          Close policy
+        </button>
+      </div>
+      </article>
+    </div>
   )
 }

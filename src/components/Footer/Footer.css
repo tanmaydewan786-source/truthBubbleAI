@@ -40,13 +40,22 @@
   align-items: center;
 }
 
-.foot-links a {
+.foot-links a,
+.footer-privacy-button {
   color: rgba(17, 17, 17, 0.78);
   text-decoration: none;
   transition: color 150ms ease;
 }
 
-.foot-links a:hover {
+.footer-privacy-button {
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.foot-links a:hover,
+.footer-privacy-button:hover {
   color: #111111;
 }
 
