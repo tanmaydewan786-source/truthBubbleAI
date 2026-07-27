@@ -3,8 +3,22 @@ import './CustomCursor.css'
 
 const INTERACTIVE_SELECTOR = 'a, button, [role="button"], input, textarea, select, label'
 
+function getCursorInfo(element) {
+  const interactiveElement = element.closest(INTERACTIVE_SELECTOR)
+  if (!interactiveElement) return ''
+
+  const customInfo = interactiveElement.dataset.cursorInfo
+  if (customInfo) return customInfo
+
+  if (interactiveElement.matches('a')) return 'Click to open'
+  if (interactiveElement.matches('input, textarea, select')) return 'Click to enter details'
+
+  return 'Click to interact'
+}
+
 export default function CustomCursor() {
   const cursorRef = useRef(null)
+  const infoRef = useRef(null)
 
   useEffect(() => {
     const cursor = cursorRef.current
@@ -14,14 +28,16 @@ export default function CustomCursor() {
 
     const moveCursor = (event) => {
       const isInsideApp = app?.contains(event.target)
+      const cursorInfo = isInsideApp ? getCursorInfo(event.target) : ''
 
       cursor.style.setProperty('--cursor-x', `${event.clientX}px`)
       cursor.style.setProperty('--cursor-y', `${event.clientY}px`)
       cursor.classList.toggle('custom-cursor--visible', Boolean(isInsideApp))
-      cursor.classList.toggle(
-        'custom-cursor--interactive',
-        Boolean(isInsideApp && event.target.closest(INTERACTIVE_SELECTOR)),
-      )
+      cursor.classList.toggle('custom-cursor--interactive', Boolean(cursorInfo))
+
+      if (infoRef.current && infoRef.current.textContent !== cursorInfo) {
+        infoRef.current.textContent = cursorInfo
+      }
     }
 
     const hideCursor = () => cursor.classList.remove('custom-cursor--visible')
@@ -47,6 +63,7 @@ export default function CustomCursor() {
     <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
       <span className="custom-cursor__ring" />
       <span className="custom-cursor__dot" />
+      <span ref={infoRef} className="custom-cursor__info" />
     </div>
   )
 }
