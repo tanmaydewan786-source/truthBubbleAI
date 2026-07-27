@@ -4,11 +4,13 @@ import Trust from '../../components/Trust/Trust.jsx'
 import Matters from '../../components/Matters/Matters.jsx'
 import demoVid from '../../assets/truth-bubble-demo.mp4'
 import demoPoster from '../../assets/truth-bubble-preview.jpg'
-import heroImage from '../../assets/truth-bubble-instagram-verification.jpeg'
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function LandingPage() {
+  const verificationFileRef = useRef(null)
+  const [verificationQuery, setVerificationQuery] = useState('')
+
   const scrollToHowItWorks = () => {
     requestAnimationFrame(() => {
       document.getElementById('how')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -17,40 +19,81 @@ function LandingPage() {
 
   return (
     <div className="landing-page">
-      <section className="hero">
-        <div className="orb-field" aria-hidden="true">
-          <div className="orb" />
-          <div className="orb ring" />
-        </div>
-        <div className="wrap hero-grid">
-          <div className="hero-copy">
-            <div className="hero-visual-column">
-              <span className="status-pill hero-image-status">
-                <span className="live" aria-hidden="true"></span>
-                Beta in development · Android first
-              </span>
-              <div className="hero-product-image">
-                <img
-                  src={heroImage}
-                  alt="Truth Bubble verifying a claim inside an Instagram post"
-                />
-              </div>
-            </div>
+      <section className="verification-hero" aria-labelledby="verification-hero-title">
+        <div className="verification-orb verification-orb--left" aria-hidden="true" />
+        <div className="verification-orb verification-orb--right" aria-hidden="true" />
+        <div className="verification-orb-glow" aria-hidden="true" />
 
-            <div className="hero-copy-content">
-              <h1>
-                Empowering India’s<br />
-                <span className="accent">next billion users</span><br />
-                via One-Tap
-              </h1>
-              <div className="hero-cta hero-image-actions">
-                <Link className="btn btn-primary" to="/beta">Join the beta waitlist</Link>
-                <Link className="btn btn-ghost" to="/#how" onClick={scrollToHowItWorks}>
-                  See how it works
-                </Link>
-              </div>
-              <p className="hero-meta">Full public rollout targeted for January 2027.</p>
+        <div className="wrap verification-hero__content">
+          <span className="verification-hero__eyebrow">Hero section</span>
+          <h1 id="verification-hero-title">
+            Building the AI Verification
+            <br />
+            Layer for the Internet
+          </h1>
+          <p>
+            Truth Bubble AI uses multimodal AI to verify information, understand context,
+            and help people make informed decisions across any digital platform.
+          </p>
+
+          <div className="verification-box">
+            <label className="verification-input">
+              <span className="verification-input__icon" aria-hidden="true">⌕</span>
+              <input
+                type="text"
+                value={verificationQuery}
+                onChange={(event) => setVerificationQuery(event.target.value)}
+                placeholder="Paste text, a URL, or upload a screenshot..."
+                aria-label="Text or URL to verify"
+                data-cursor-info="Enter content you want to verify"
+              />
+            </label>
+
+            <div className="verification-actions">
+              <input
+                ref={verificationFileRef}
+                className="verification-file-input"
+                type="file"
+                accept="image/*"
+                onChange={(event) => {
+                  const file = event.target.files?.[0]
+                  if (file) setVerificationQuery(file.name)
+                }}
+              />
+              <button
+                className="verification-action verification-action--dark"
+                type="button"
+                onClick={() => verificationFileRef.current?.click()}
+                data-cursor-info="Choose a screenshot to verify"
+              >
+                <span aria-hidden="true">↥</span> Upload Screenshot
+              </button>
+              <button
+                className="verification-action verification-action--light"
+                type="button"
+                onClick={() => document.querySelector('.verification-input input')?.focus()}
+                data-cursor-info="Paste a link for verification"
+              >
+                <span aria-hidden="true">↗</span> Paste URL
+              </button>
+              <button
+                className="verification-action verification-action--dark"
+                type="button"
+                onClick={scrollToHowItWorks}
+                data-cursor-info="See how Truth Bubble works"
+              >
+                Try Demo
+              </button>
             </div>
+          </div>
+
+          <div className="verification-platforms" aria-label="Supported content sources">
+            {['WhatsApp', 'Instagram', 'X', 'YouTube', 'News', 'Browser', 'PDFs', 'Email'].map((platform) => (
+              <span key={platform}>
+                <b aria-hidden="true">{platform === 'X' ? '𝕏' : platform.slice(0, 1)}</b>
+                {platform}
+              </span>
+            ))}
           </div>
         </div>
       </section>
