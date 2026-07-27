@@ -61,8 +61,7 @@ export default function CustomCursor() {
 
   return (
     <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
-      <span className="custom-cursor__ring" />
-      <span className="custom-cursor__dot" />
+      <span className="custom-cursor__bubble">TB</span>
       <span ref={infoRef} className="custom-cursor__info" />
     </div>
   )
