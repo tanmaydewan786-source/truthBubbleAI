@@ -93,6 +93,168 @@
     transform: translateY(0) scale(1);
   }
 
+  .custom-cursor--analysis .custom-cursor__info {
+    opacity: 0;
+  }
+
+  .custom-cursor__analysis-card {
+    position: absolute;
+    top: -34px;
+    right: 28px;
+    display: flex;
+    width: 260px;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px 18px;
+    color: #17120e;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    text-align: left;
+    background: rgba(255, 253, 249, 0.98);
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    border-radius: 10px 0 10px 10px;
+    box-shadow: 0 12px 35px rgba(17, 10, 5, 0.18);
+    animation: cursor-analysis-in 180ms ease-out;
+  }
+
+  .custom-cursor__analysis-card::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: -7px;
+    width: 14px;
+    height: 14px;
+    background: #fffdf9;
+    transform: rotate(45deg);
+  }
+
+  .custom-cursor__analysis-card > strong {
+    margin-bottom: 3px;
+    font-size: 0.88rem;
+  }
+
+  .custom-cursor__analysis-card b {
+    color: #e97320;
+  }
+
+  .custom-cursor__analysis-card span:nth-of-type(2) b {
+    color: #24945f;
+  }
+
+  .custom-cursor__analysis-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    color: #9b5b10;
+  }
+
+  .custom-cursor__analysis-status i {
+    display: grid;
+    width: 15px;
+    height: 15px;
+    place-items: center;
+    color: #ffffff;
+    font-size: 0.6rem;
+    font-style: normal;
+    background: #f19a2a;
+    border-radius: 50%;
+  }
+
+  .custom-cursor__analysis-card small {
+    margin-top: 2px;
+    color: #376c96;
+    font-weight: 700;
+  }
+
+  .custom-cursor__analysis-card--loading {
+    min-height: 116px;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .custom-cursor__analysis-card--loading > strong,
+  .custom-cursor__analysis-card--loading > small {
+    padding-left: 36px;
+  }
+
+  .custom-cursor__analysis-card--loading > small {
+    color: rgba(23, 18, 14, 0.58);
+    font-weight: 600;
+  }
+
+  .custom-cursor__scanner {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    display: grid;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    border: 2px solid rgba(242, 103, 30, 0.2);
+    border-radius: 7px;
+    overflow: hidden;
+  }
+
+  .custom-cursor__scanner i {
+    width: 20px;
+    height: 2px;
+    background: #f2671e;
+    box-shadow: 0 0 7px rgba(242, 103, 30, 0.75);
+    animation: cursor-scan 900ms ease-in-out infinite alternate;
+  }
+
+  .custom-cursor__progress {
+    position: relative;
+    height: 4px;
+    margin-top: 4px;
+    overflow: hidden;
+    background: rgba(17, 17, 17, 0.08);
+    border-radius: 999px;
+  }
+
+  .custom-cursor__progress-fill {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #fea843, #f26219);
+    border-radius: inherit;
+    transition: width 300ms ease;
+  }
+
+  .custom-cursor__progress-fill--scanning {
+    width: 33%;
+  }
+
+  .custom-cursor__progress-fill--reading {
+    width: 66%;
+  }
+
+  .custom-cursor__progress-fill--generating {
+    width: 100%;
+  }
+
+  @keyframes cursor-scan {
+    from {
+      transform: translateY(-8px);
+    }
+
+    to {
+      transform: translateY(8px);
+    }
+  }
+
+  @keyframes cursor-analysis-in {
+    from {
+      opacity: 0;
+      transform: translateX(10px) scale(0.97);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+
   .custom-cursor--pressed .custom-cursor__bubble {
     transform: translate(-50%, -50%) scale(0.78);
   }

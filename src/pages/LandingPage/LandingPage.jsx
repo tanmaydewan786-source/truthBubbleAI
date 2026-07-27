@@ -4,17 +4,38 @@ import Trust from '../../components/Trust/Trust.jsx'
 import Matters from '../../components/Matters/Matters.jsx'
 import demoVid from '../../assets/truth-bubble-demo.mp4'
 import demoPoster from '../../assets/truth-bubble-preview.jpg'
+import heroImage from '../../assets/Hero image.png'
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function LandingPage() {
-  const verificationFileRef = useRef(null)
-  const [verificationQuery, setVerificationQuery] = useState('')
+  const [ocrScanning, setOcrScanning] = useState(false)
+  const ocrTimerRef = useRef(null)
 
-  const scrollToHowItWorks = () => {
-    requestAnimationFrame(() => {
-      document.getElementById('how')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    })
+  useEffect(() => {
+    const cancelOcrOnOutsideClick = (event) => {
+      if (!event.target.closest('.verification-hero__image')) {
+        window.clearTimeout(ocrTimerRef.current)
+        setOcrScanning(false)
+      }
+    }
+
+    window.addEventListener('pointerdown', cancelOcrOnOutsideClick)
+    return () => {
+      window.removeEventListener('pointerdown', cancelOcrOnOutsideClick)
+      window.clearTimeout(ocrTimerRef.current)
+    }
+  }, [])
+
+  const startOcrScan = () => {
+    if (ocrScanning) return
+
+    window.dispatchEvent(new Event('truthbubble:close-cursor-analysis'))
+    setOcrScanning(true)
+    ocrTimerRef.current = window.setTimeout(() => {
+      setOcrScanning(false)
+      window.dispatchEvent(new Event('truthbubble:toggle-cursor-analysis'))
+    }, 2000)
   }
 
   return (
@@ -36,56 +57,26 @@ function LandingPage() {
             and help people make informed decisions across any digital platform.
           </p>
 
-          <div className="verification-box">
-            <label className="verification-input">
-              <span className="verification-input__icon" aria-hidden="true">⌕</span>
-              <input
-                type="text"
-                value={verificationQuery}
-                onChange={(event) => setVerificationQuery(event.target.value)}
-                placeholder="Paste text, a URL, or upload a screenshot..."
-                aria-label="Text or URL to verify"
-                data-cursor-info="Enter content you want to verify"
-              />
-            </label>
-
-            <div className="verification-actions">
-              <input
-                ref={verificationFileRef}
-                className="verification-file-input"
-                type="file"
-                accept="image/*"
-                onChange={(event) => {
-                  const file = event.target.files?.[0]
-                  if (file) setVerificationQuery(file.name)
-                }}
-              />
-              <button
-                className="verification-action verification-action--dark"
-                type="button"
-                onClick={() => verificationFileRef.current?.click()}
-                data-cursor-info="Choose a screenshot to verify"
-              >
-                <span aria-hidden="true">↥</span> Upload Screenshot
-              </button>
-              <button
-                className="verification-action verification-action--light"
-                type="button"
-                onClick={() => document.querySelector('.verification-input input')?.focus()}
-                data-cursor-info="Paste a link for verification"
-              >
-                <span aria-hidden="true">↗</span> Paste URL
-              </button>
-              <button
-                className="verification-action verification-action--dark"
-                type="button"
-                onClick={scrollToHowItWorks}
-                data-cursor-info="See how Truth Bubble works"
-              >
-                Try Demo
-              </button>
-            </div>
-          </div>
+          <button
+            className={`verification-hero__image ${ocrScanning ? 'verification-hero__image--scanning' : ''}`}
+            type="button"
+            onClick={startOcrScan}
+            aria-label="Open verification result for this example"
+            aria-busy={ocrScanning}
+            data-cursor-info="View the verification result"
+          >
+            <img
+              src={heroImage}
+              alt="A hand holding a phone displaying a social media post that needs verification"
+            />
+            {ocrScanning && (
+              <span className="verification-ocr" aria-live="polite">
+                <span className="verification-ocr__line" aria-hidden="true" />
+                <strong>OCR scanning image...</strong>
+                <small>Detecting text, claims, and visual context</small>
+              </span>
+            )}
+          </button>
 
           <div className="verification-platforms" aria-label="Supported content sources">
             {['WhatsApp', 'Instagram', 'X', 'YouTube', 'News', 'Browser', 'PDFs', 'Email'].map((platform) => (
