@@ -1,0 +1,74 @@
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .app-shell,
+  .app-shell a,
+  .app-shell button,
+  .app-shell [role="button"],
+  .app-shell input,
+  .app-shell textarea,
+  .app-shell select,
+  .app-shell label {
+    cursor: none;
+  }
+
+  .custom-cursor {
+    --cursor-x: -100px;
+    --cursor-y: -100px;
+    position: fixed;
+    inset: 0 auto auto 0;
+    z-index: 10000;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(var(--cursor-x), var(--cursor-y), 0);
+    transition: opacity 160ms ease;
+  }
+
+  .custom-cursor--visible {
+    opacity: 1;
+  }
+
+  .custom-cursor__ring,
+  .custom-cursor__dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom-cursor__ring {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #ff8a3d;
+    background: rgba(255, 180, 111, 0.14);
+    box-shadow: 0 0 0 4px rgba(255, 180, 111, 0.08);
+    transition:
+      width 180ms ease,
+      height 180ms ease,
+      background 180ms ease,
+      transform 120ms ease;
+  }
+
+  .custom-cursor__dot {
+    width: 5px;
+    height: 5px;
+    background: #111111;
+  }
+
+  .custom-cursor--interactive .custom-cursor__ring {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 180, 111, 0.28);
+  }
+
+  .custom-cursor--pressed .custom-cursor__ring {
+    transform: translate(-50%, -50%) scale(0.78);
+  }
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor {
+    display: none;
+  }
+}

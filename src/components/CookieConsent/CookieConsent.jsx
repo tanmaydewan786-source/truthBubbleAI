@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './CookieConsent.css'
 import PrivacyPage from '../../pages/PrivacyPage/PrivacyPage.jsx'
+import { denyGoogleConsent, grantGoogleConsent } from '../../utils/googleConsent.js'
 
 const CONSENT_KEY = 'truthBubbleCookieConsent'
 
@@ -17,6 +18,10 @@ export default function CookieConsent() {
   const [privacyOpen, setPrivacyOpen] = useState(false)
 
   useEffect(() => {
+    if (readConsent() === 'accepted') {
+      grantGoogleConsent()
+    }
+
     const openSettings = () => setOpen(true)
     const openPrivacy = () => {
       setOpen(false)
@@ -35,6 +40,12 @@ export default function CookieConsent() {
       window.localStorage.setItem(CONSENT_KEY, choice)
     } catch {
       // The visitor's browser may block local storage; their choice still applies for this visit.
+    }
+
+    if (choice === 'accepted') {
+      grantGoogleConsent()
+    } else {
+      denyGoogleConsent()
     }
 
     window.dispatchEvent(new CustomEvent('truthbubble:cookie-consent', { detail: choice }))

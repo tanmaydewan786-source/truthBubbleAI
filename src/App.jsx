@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer.jsx'
 import LandingPage from './pages/LandingPage/LandingPage.jsx'
 import BrevoBetaForm from './components/BravoBetaForm/BravoBetaForm.jsx'
 import CookieConsent from './components/CookieConsent/CookieConsent.jsx'
+import CustomCursor from './components/CustomCursor/CustomCursor.jsx'
 
 function ScrollToLocation() {
   const { pathname, hash } = useLocation()
@@ -28,6 +29,7 @@ function ScrollToLocation() {
 function App() {
   return (
     <div className="app-shell">
+      <CustomCursor />
       <ScrollToLocation />
       <header className="app-header">
         <div className="desktop-nav">
